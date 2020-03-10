@@ -11,12 +11,17 @@ This is, essentially, a Redis Cluster-aware NAT protocol.
 ```bash
 ./redisClusterProxyServer server -listenAddr :8000 -clusterAddr cluster:7000
 ```
+## As a Docker Container
 
-Where ports 8000 - 8005 and 7000 - 7005 are exposed in your docker-compose.yaml file. cluster is the service name of your [Redis Cluster](https://redis.io/topics/cluster-tutorial). See the docker-compose.yaml file for an example.
+```bash
+docker run --name redis-proxy -d -e "listenAddr=:8000" -e "clusterAddr=cluster:7000" svenakela/wojno-redis-proxy:latest
+```
 
 ## Using the Docker-compose file
 
 There is a docker-compose.yaml in the root of the project. It using [grokzen's Redis Cluster](https://github.com/Grokzen/docker-redis-cluster) [docker image](https://hub.docker.com/r/grokzen/redis-cluster/) to test.
+
+Where ports 8000 - 8005 and 7000 - 7005 are exposed in your docker-compose.yaml file. cluster is the service name of your [Redis Cluster](https://redis.io/topics/cluster-tutorial). See the docker-compose.yaml file for an example.
 
 ```bash
 docker-compose up
