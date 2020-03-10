@@ -14,7 +14,7 @@ This is, essentially, a Redis Cluster-aware NAT protocol.
 ## As a Docker Container
 
 ```bash
-docker run --name redis-proxy -d -e "listenAddr=:8000" -e "clusterAddr=cluster:7000" svenakela/wojno-redis-proxy:latest
+docker run --name redis-proxy -d -e "LISTEN_ADDR=:8000" -e "CLUSTER_ADDR=cluster:7000" svenakela/wojno-redis-proxy:latest
 ```
 
 ## Using the Docker-compose file
